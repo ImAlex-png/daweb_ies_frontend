@@ -1,0 +1,7 @@
+<h2>Mis alumnos</h2>
+
+@for (alumno of (alumnos$ | async); track alumno.id){
+    <p>{{ alumno.nombre }} {{ alumno.apellidos }} {{ alumno.id}}</p>
+} @empty{
+    <p>Cargando alumnos...</p>
+}
