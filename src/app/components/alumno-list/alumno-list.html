@@ -1,7 +1,15 @@
-<h2>Mis alumnos</h2>
+<h2>Todos mis alumnos</h2>
 
-@for (alumno of (alumnos$ | async); track alumno.id){
-    <p>{{ alumno.nombre }} {{ alumno.apellidos }} {{ alumno.id}}</p>
-} @empty{
-    <p>Cargando alumnos...</p>
+<!-- Bucle para ver todos los alumnos -->
+@for (alumno of alumnos; track $index) {
+    
+    <!-- Por cada alumno, el id le damos el enlace para su descripcion ( usando el ID ) -->
+<p>
+    <a [routerLink]="['/alumno', alumno.id]">
+        ID: {{alumno.id}}
+    </a>
+</p>
+<p>Nombre: {{alumno.nombre}}</p>
+<p>Ipasen: {{alumno.ipasen}}</p>
+
 }

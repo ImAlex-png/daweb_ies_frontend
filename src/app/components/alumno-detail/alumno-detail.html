@@ -1,6 +1,6 @@
-@if (alumno()) {
-  <h2>Detalle del alumno {{ alumno()?.id }}</h2>
-  <p>Nombre: {{ alumno()?.nombre }}</p>
-} @else {
-  <p>Cargando...</p>
-}
+<h2>Detalles del alumno:</h2>
+
+<p>El id del alumno es: {{alumno?.id}}</p><br>
+<p>El id del alumno es: {{alumno?.nombre}}</p><br>
+<p>Los apellidos del alumno son: {{alumno?.apellidos}}</p><br>
+<p>El ipasen del alumno es: {{alumno?.ipasen}}</p><br>

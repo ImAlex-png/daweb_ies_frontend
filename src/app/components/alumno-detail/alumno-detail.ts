@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, input, signal, OnInit, Input } from '@angular/core';
 import { AlumnoService } from '../../services/alumno';
 import { Alumno } from '../../models/alumno';
 
@@ -8,19 +8,30 @@ import { Alumno } from '../../models/alumno';
   templateUrl: './alumno-detail.html',
   styleUrl: './alumno-detail.css',
 })
-export class AlumnoDetail {
+export class AlumnoDetail implements OnInit {
 
-  //Injectamos lo que necesitemos ( Ruta para el id del AlumnoService )
-  private service = inject(AlumnoService);
 
-  //Convertimos el parametro "id" en una Signal reactiva
-  id = input.required<number>();
+  // Definimos el input que vamos a recibir
+  @Input() private id!: number;
 
-  //2. Creamos una señal vacia para guardar al alumno
-  alumno = signal<Alumno | null>(null);
+  //Guardamos el alumno ( aunque sea nulo al principio )
+  alumno: Alumno | undefined;
 
-  //Al cargar, pedimos los datos y los guardamos en la señal
+  //Inyectamos por constructor
+  constructor(private service: AlumnoService) { }
+
   ngOnInit() {
-    this.service.getAlumno(this.id()).subscribe(res => {this.alumno.set(res);});
+    if (this.id) {
+      this.service.getAlumno(this.id).subscribe({
+        next: (res) => {
+          this.alumno = res;
+        },
+        error: (err) => {
+          console.error("Error al obtener el alumno", err);
+        }
+      })
+    }
   }
+
+
 }
