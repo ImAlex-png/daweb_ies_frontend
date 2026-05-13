@@ -14,8 +14,8 @@ export class ProfesorService {
   ){};
 
   //Creamos la funcion para el  endpoint de profesor por ID
-  getProfesor(id: number): Observable<Profesor[]>{
-    return this.http.get<Profesor[]>(`${this.url}/${id}`);
+  getProfesor(id: number): Observable<Profesor>{
+    return this.http.get<Profesor>(`${this.url}/${id}`);
   }
 
   //Endpoint de profesores enteros

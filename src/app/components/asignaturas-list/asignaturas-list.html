@@ -1,0 +1,10 @@
+<h2>Todas las asignaturas</h2>
+
+@for (asignatura of asignaturas; track $index) {
+    <p>
+        <b>ID de la asignatura:</b> 
+        <a [routerLink]="['/asignaturas', asignatura.id]">{{asignatura.id}}</a>
+    </p>
+    <p><b>Nombre de la asignatura:</b> {{asignatura.nombre}}</p>
+    <p><b>Horas: </b>{{asignatura.horas}}</p>
+}

@@ -1,0 +1,14 @@
+<h2>Lista de matriculas</h2>
+
+@for (matricula of matriculas; track $index) {
+<p>
+    <b>ID de la matricula: </b>
+    <a [routerLink]="['/matricula', matricula.idMat]">
+        {{matricula?.idMat}}
+    </a>
+</p>
+<p><b>Curso:</b> {{matricula.curso}}</p>
+<p><b>Nota media: </b>{{matricula.notaMedia}}</p>
+<br>
+
+}

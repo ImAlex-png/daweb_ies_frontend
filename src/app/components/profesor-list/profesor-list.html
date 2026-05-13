@@ -1,1 +1,17 @@
-<p>profesor-list works!</p>
+<h2>Todos mis profesores</h2>
+
+<!-- Bucle para ver todos los alumnos -->
+@for (profesor of profesores; track $index) {
+    
+    <!-- Por cada alumno, el id le damos el enlace para su descripcion ( usando el ID ) -->
+<p>
+    <a [routerLink]="['/profesores', profesor.id]">
+        ID: {{profesor.id}}
+    </a>
+</p>
+<p><b>Nombre:</b>{{profesor.nombre}}</p>
+<p><b>Apellidos:</b>{{profesor.apellidos}}</p>
+<p><b>Especialidad: </b>{{profesor.especialidad}}</p>
+<!-- <p>Ipasen: {{profesor.ipasen}}</p> -->
+
+}

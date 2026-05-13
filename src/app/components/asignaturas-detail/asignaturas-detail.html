@@ -1,0 +1,14 @@
+<h2>Detalle de la asignatura</h2>
+
+<p>ID de la asignatura: {{asignatura?.id}}</p>
+<p>Nombre de la asignatura: {{asignatura?.nombre}}</p>
+<p>Horas de la asignatura: {{asignatura?.horas}}</p>
+<p>
+    <b>Nombre del profesor:</b>
+    <a [routerLink]="['/profesores', asignatura?.profesor?.id]">
+       {{asignatura?.profesor?.nombre}}
+    </a>
+</p>
+
+
+

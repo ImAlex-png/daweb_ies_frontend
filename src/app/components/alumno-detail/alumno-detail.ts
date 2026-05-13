@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, signal, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AlumnoService } from '../../services/alumno';
 import { Alumno } from '../../models/alumno';
 
