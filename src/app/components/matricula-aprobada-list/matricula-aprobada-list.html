@@ -1,0 +1,10 @@
+<p>Lista de matriculas aprobadas:</p>
+
+@for (matricula of matriculasAprobadas; track matricula.idMat) {
+<p><b>ID de la matricula:</b> {{matricula.idMat}}</p>
+<p><b>Curso:</b> {{matricula.curso}}</p>
+<p><b>Nota Media:</b> {{matricula.notaMedia}}</p>
+<p><b>Alumno:</b> {{matricula.alumno.nombre}}</p>
+<p><b>Asignatura:</b> {{matricula.asignatura.nombre}}</p>
+<br>
+}

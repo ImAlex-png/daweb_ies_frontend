@@ -1,8 +1,13 @@
-<h2>Detalle de la asignatura</h2>
+<h2>Detalle de la matricula</h2>
 
-<p>
-    <b>ID de la matricula: </b>
-    <a [routerLink]="['/matricula', matricula?.idMat]">
-        {{matricula?.idMat}}
-    </a></p>
+<p>ID de la matricula: {{matricula?.idMat}}</p>
 <p>Curso: {{matricula?.curso}}</p>
+<p>
+    <b>Alumno:</b>
+    <a [routerLink]="['/alumno', matricula?.alumno?.id]">{{matricula?.alumno?.id}}</a>
+</p>
+<p>
+    <b>Asignatura:</b> 
+    <a [routerLink]="['/asignaturas', matricula?.asignatura?.id]">{{matricula?.asignatura?.id}}</a>
+</p>
+<p>Nota media: {{matricula?.notaMedia}}</p>

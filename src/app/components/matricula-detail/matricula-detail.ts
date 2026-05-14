@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Matricula } from '../../models/matricula';
 import { MatriculaService } from '../../services/matricula';
-import { RouterLink } from "@angular/router";
+import { ActivatedRoute, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-matricula-detail',
@@ -9,23 +9,32 @@ import { RouterLink } from "@angular/router";
   templateUrl: './matricula-detail.html',
   styleUrl: './matricula-detail.css',
 })
-export class MatriculaDetail {
-@Input() private idMat!: number
+export class MatriculaDetail implements OnInit {
 
-matricula: Matricula | undefined;
+  id!: number;
+  matricula?: Matricula;
 
-constructor(private service: MatriculaService){};
+  constructor(
+    private service: MatriculaService,
+    private route: ActivatedRoute
+  ) { };
 
-ngOnInit(): void {
-  if(this.idMat){
-    this.service.getMatricula(this.idMat).subscribe({
-      next: ( res ) => {
-        this.matricula = res;
-      },
-      error: ( err ) => {
-        console.error("Error al obtener la matricula")
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.id = Number(params['id']); 
+      //Le asignamos el id del parámetro a la variable id
+      //y buscamos si es un número válido
+
+      if (this.id) {
+        this.service.getMatricula(this.id).subscribe({
+          next: (res) => {
+            this.matricula = res;
+          },
+          error: (err) => {
+            console.error("Error al obtener la matricula", err);
+          }
+        });
       }
-    })
+    });
   }
-}
 }
