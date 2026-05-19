@@ -7,4 +7,6 @@
     </p>
     <p><b>Nombre de la asignatura:</b> {{asignatura.nombre}}</p>
     <p><b>Horas: </b>{{asignatura.horas}}</p>
+    <button [routerLink]="['/asignaturas', asignatura.id, 'alumnos']">Ver Alumnos</button><br>
+    <br>
 }

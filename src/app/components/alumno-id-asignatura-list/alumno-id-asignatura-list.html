@@ -1,0 +1,15 @@
+<h2>Lista de alumnos que pertenecen a la asignatura: {{ asignatura?.nombre }}</h2>
+
+@for (matricula of matriculasFiltradas; track matricula.idMat) {
+
+<p><b>Alumno:</b> {{matricula.alumno.nombre }}</p>
+<p><b>ID del alumno:</b> {{ matricula.alumno.id }}</p>
+<p><b>Ipasen:</b> {{ matricula.alumno.ipasen }}</p>
+<p><b>Curso:</b> {{ matricula.curso }}</p>
+<p><b>Nota media:</b> {{ matricula.notaMedia }}</p>
+<br>
+} @empty {
+<p>No hay alumnos matriculados en esta asignatura.</p>
+}
+
+<br>
