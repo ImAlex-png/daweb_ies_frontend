@@ -19,6 +19,10 @@ export class AlumnoList implements OnInit {
   constructor(private service: AlumnoService) { };
 
   ngOnInit() {
+
+    console.log('AlumnoListComponent initialized');
+  console.log(this.alumnos); // Si tienes una lista de alumnos
+  
     //Usamos el subscribe para traer los datos del Observable
     this.service.getAlumnos().subscribe({
       next: (data) => {
@@ -29,6 +33,7 @@ export class AlumnoList implements OnInit {
         console.error("Error al cargar la lista", err);
       }
     })
+
   }
 
 }
