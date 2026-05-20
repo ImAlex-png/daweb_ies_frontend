@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Alumno } from '../models/alumno';
+import { environment } from '../../enviroments/enviroment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlumnoService {
-  private url = "http://localhost:8081/alumno"; // Url del backend
+  private url = `${environment.apiUrl}/alumno`; // Url del backend
 
   constructor(
     private http: HttpClient
